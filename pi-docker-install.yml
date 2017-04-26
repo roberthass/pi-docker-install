@@ -6,6 +6,7 @@
   tasks:
   - name: set timezone to Europe/Berlin
     command: timedatectl set-timezone Europe/Berlin
+    
   - name: install aptitude
     apt: name=aptitude state=latest
 
@@ -16,3 +17,17 @@
     apt: name={{item}} state=latest
     with_items:
       - openssh-server
+      
+  - name: install tools for docker
+    apt: name={{item}} state=latest
+    with_items:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+  
+  - name: add Docker GPG Key
+    command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    
+  - name: add Docker Repository
+    command: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
