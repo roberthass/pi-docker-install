@@ -4,6 +4,8 @@
   become_user: root
   become_method: sudo
   tasks:
+  - name: set timezone to Europe/Berlin
+    command: timedatectl set-timezone Europe/Berlin
   - name: install aptitude
     apt: name=aptitude state=latest
 
