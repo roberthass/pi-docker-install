@@ -27,7 +27,12 @@
       - software-properties-common
   
   - name: add Docker GPG Key
-    command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    apt_key: url="https://download.docker.com/linux/ubuntu/gpg" state=present
     
   - name: add Docker Repository
-    command: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    command: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
+
+  - name: install docker-ce
+    apt:
+      name: docker-ceo
+      update_cache: yes
