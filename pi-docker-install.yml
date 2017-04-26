@@ -34,5 +34,5 @@
 
   - name: install docker-ce
     apt:
-      name: docker-ceo
+      name: docker-ce
       update_cache: yes
