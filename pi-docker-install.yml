@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+  - name: install aptitude
+    apt: name=aptitude state=latest
+
+  - name: apt upgrade
+    apt: upgrade=full
+
+  - name: install tools
+    apt: name={{item}} state=latest
+    with_items:
+      - openssh-server
