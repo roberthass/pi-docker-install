@@ -1,3 +1,4 @@
 ansible.yml
 .vagrant
 *.log
+*.retry

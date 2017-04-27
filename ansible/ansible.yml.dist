@@ -1,3 +1,4 @@
 ---
 timezone: 'Europe/Berlin'
 system_architecture: 'armhf'  #docker supports: amd64, armhf
+host_name: 'raspberry-shadow'
