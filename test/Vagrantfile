@@ -1,0 +1,23 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+testBoxHostname = 'pi-docker-install-test-box'
+
+Vagrant.configure("2") do |config|
+
+    config.vm.box = "ubuntu/xenial64"
+    config.vm.hostname = testBoxHostname
+
+    config.vm.provider :virtualbox do |vb|
+        vb.name = testBoxHostname
+        vb.memory = '1024'
+        vb.cpus = '2'
+    end
+
+    #network
+    config.vm.network "private_network", ip: '10.0.71.100'
+
+    #shares
+    config.vm.synced_folder '../ansible', "/opt/local/ansible"
+
+end

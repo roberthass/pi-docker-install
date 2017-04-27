@@ -4,8 +4,9 @@
   become_user: root
   become_method: sudo
   tasks:
+
   - name: include configuration file
-    include_vars: ansible.cfg
+    include_vars: ansible.yml
 
   - name: set timezone to {{timezone}}
     command: timedatectl set-timezone {{timezone}}
