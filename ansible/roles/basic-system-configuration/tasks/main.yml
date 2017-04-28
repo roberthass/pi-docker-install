@@ -1,0 +1,12 @@
+---
+- name: set timezone to {{timezone}}
+  command: timedatectl set-timezone {{timezone}}
+
+- name: set hostname to {{host_name}}
+  hostname: name={{host_name}}
+
+- name: install aptitude
+  apt: name=aptitude state=latest
+
+- name: apt upgrade
+  apt: upgrade=full

@@ -1,0 +1,19 @@
+---
+- name: install tools for docker
+  apt: name={{item}} state=latest
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+
+- name: add Docker GPG Key
+  apt_key: url="https://download.docker.com/linux/ubuntu/gpg" state=present
+
+- name: add Docker Repository
+  command: add-apt-repository "deb [arch={{system_architecture}}] https://download.docker.com/linux/ubuntu xenial stable"
+
+- name: install docker-ce
+  apt:
+    name: docker-ce
+    update_cache: yes
