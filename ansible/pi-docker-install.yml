@@ -10,4 +10,4 @@
   roles:
       - basic-system-configuration
       - openssh-server
-      - docker-ce
+#      - docker-ce

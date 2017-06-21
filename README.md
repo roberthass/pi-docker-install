@@ -1,4 +1,9 @@
-### install ansible under ubuntu with:
+### enable ssh autostart (raspbian)
+```bash
+$ sudo update-rc.d ssh enable
+```
+
+### install ansible (raspbian)
 
 ```bash
 $ sudo ./install-ansible.sh
@@ -7,5 +12,5 @@ $ sudo ./install-ansible.sh
 ### run playbook with:
 
 ```bash
-$ sudo ansible-playbook -i "localhost," -c local pi-docker-install.yml
+$ sudo ./run-playbook.sh
 ```
